@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PatientHistory</string>
+    <string name="sign_in">Sign In</string>
+    <string name="register">Register</string>
 </resources>
