@@ -2,8 +2,10 @@ package com.example.patienthistory.entity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+@Entity(tableName = "patient_personal_information")
 public class Patient {
 
     @PrimaryKey(autoGenerate = true)
