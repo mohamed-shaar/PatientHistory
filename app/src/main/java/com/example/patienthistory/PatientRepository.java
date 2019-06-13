@@ -25,6 +25,8 @@ public class PatientRepository {
 
     public void delete(PatientWithData patientWithData) { new DeleteNoteAsyncTask(patientDao).execute(patientWithData); }
 
+    public LiveData<PatientWithData> getData() { return patient; }
+
     private static class InsertNoteAsyncTask extends AsyncTask<PatientWithData, Void, Void> {
 
         private PatientDao patientDao;
