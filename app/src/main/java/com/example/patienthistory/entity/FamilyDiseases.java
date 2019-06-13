@@ -13,6 +13,8 @@ public class FamilyDiseases {
 
     private String relation;
 
+    private int patientId;
+
     public FamilyDiseases(String diseaseName, String relation) {
         this.diseaseName = diseaseName;
         this.relation = relation;
