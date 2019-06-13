@@ -21,4 +21,50 @@ public class SocialHabit {
 
     private boolean alcohol;
 
+    public SocialHabit(int patientId, boolean drugs, boolean tobacco, boolean alcohol) {
+        this.patientId = patientId;
+        this.drugs = drugs;
+        this.tobacco = tobacco;
+        this.alcohol = alcohol;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public boolean isDrugs() {
+        return drugs;
+    }
+
+    public void setDrugs(boolean drugs) {
+        this.drugs = drugs;
+    }
+
+    public boolean isTobacco() {
+        return tobacco;
+    }
+
+    public void setTobacco(boolean tobacco) {
+        this.tobacco = tobacco;
+    }
+
+    public boolean isAlcohol() {
+        return alcohol;
+    }
+
+    public void setAlcohol(boolean alcohol) {
+        this.alcohol = alcohol;
+    }
 }
