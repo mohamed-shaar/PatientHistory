@@ -5,6 +5,11 @@ import android.content.Context;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+/**
+ * This class creates a kind of pipeline for http requests.
+ * There is only one global request queue and all requests go through it.
+ */
+
 public class VolleySingleton {
 
     private static VolleySingleton mInstance;
