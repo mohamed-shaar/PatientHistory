@@ -9,22 +9,16 @@ public class Patient {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @Nullable
     private String address;
 
-    @NonNull
     private String bloodType;
 
-    @NonNull
     private String socialStatus;
 
-    @Nullable
     private int numberOfChildren;
 
-    @NonNull
     private String socialHabitId;
 
-    @NonNull
     private String physicalExamId;
 
     public Patient(String address, String bloodType, String socialStatus, int numberOfChildren) {
@@ -58,7 +52,6 @@ public class Patient {
         this.id = id;
     }
 
-    @Nullable
     public String getAddress() {
         return address;
     }
@@ -67,7 +60,6 @@ public class Patient {
         this.address = address;
     }
 
-    @NonNull
     public String getBloodType() {
         return bloodType;
     }
@@ -76,7 +68,6 @@ public class Patient {
         this.bloodType = bloodType;
     }
 
-    @NonNull
     public String getSocialStatus() {
         return socialStatus;
     }
