@@ -1,4 +1,4 @@
-package com.example.patienthistory.entity;
+package com.example.patienthistory.room.entities;
 
 import java.util.List;
 
@@ -12,7 +12,15 @@ public class PatientWithData {
     @Embedded
     public Patient patient;
 
-    @Relation(parentColumn = "id", entityColumn = "patientId", entity = Allergies.class)
+    @Embedded
+    public SocialHabit socialHabit;
+
+    @Embedded
+    public PhysicalExam physicalExam;
+
+    //@Relation(parentColumn = "id", entityColumn = "patientId", entity = Allergies.class)
+
+    @Embedded
     public List<Allergies> allergies;
 
     @Relation(parentColumn = "id", entityColumn = "patientId", entity = DietaryInformation.class)

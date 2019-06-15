@@ -1,19 +1,20 @@
-package com.example.patienthistory.entity;
+package com.example.patienthistory.room.entities;
 
-import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Patient.class,
+@Entity(tableName = "social_habit_table",
+        foreignKeys = @ForeignKey(entity = Patient.class,
         parentColumns = "socialHabitId",
-        childColumns = "patientId",
+        childColumns = "socialHabitPatientId",
         onDelete = ForeignKey.CASCADE))
 public class SocialHabit {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private int patientId;
+
+    private int socialHabitPatientId;
 
     private boolean drugs;
 
@@ -21,27 +22,27 @@ public class SocialHabit {
 
     private boolean alcohol;
 
-    public SocialHabit(int patientId, boolean drugs, boolean tobacco, boolean alcohol) {
-        this.patientId = patientId;
+    public SocialHabit(int socialHabitPatientId, boolean drugs, boolean tobacco, boolean alcohol) {
+        this.socialHabitPatientId = socialHabitPatientId;
         this.drugs = drugs;
         this.tobacco = tobacco;
         this.alcohol = alcohol;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getPatientId() {
-        return patientId;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSocialHabitPatientId() {
+        return socialHabitPatientId;
+    }
+
+    public void setSocialHabitPatientId(int socialHabitPatientId) {
+        this.socialHabitPatientId = socialHabitPatientId;
     }
 
     public boolean isDrugs() {

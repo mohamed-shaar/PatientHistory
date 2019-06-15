@@ -1,15 +1,21 @@
-package com.example.patienthistory.entity;
+package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "dietary_information")
+@Entity(tableName = "dietary_information_table", foreignKeys = @ForeignKey(
+        entity = Patient.class,
+        parentColumns = "dietaryInformationId",
+        childColumns = "dietaryInformationPatientId",
+        onDelete = ForeignKey.CASCADE
+))
 public class DietaryInformation {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int patientId;
+    private int dietaryInformationPatientId;
 
     private String restrictions;
 
@@ -17,8 +23,8 @@ public class DietaryInformation {
 
     private String stimulants;
 
-    public DietaryInformation(int patientId, String restrictions, String supplements, String stimulants) {
-        this.patientId = patientId;
+    public DietaryInformation(int dietaryInformationPatientId, String restrictions, String supplements, String stimulants) {
+        this.dietaryInformationPatientId = dietaryInformationPatientId;
         this.restrictions = restrictions;
         this.supplements = supplements;
         this.stimulants = stimulants;
@@ -32,12 +38,12 @@ public class DietaryInformation {
         this.id = id;
     }
 
-    public int getPatientId() {
-        return patientId;
+    public int getDietaryInformationPatientId() {
+        return dietaryInformationPatientId;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public void setDietaryInformationPatientId(int dietaryInformationPatientId) {
+        this.dietaryInformationPatientId = dietaryInformationPatientId;
     }
 
     public String getRestrictions() {

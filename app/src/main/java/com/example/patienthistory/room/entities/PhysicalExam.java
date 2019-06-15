@@ -1,43 +1,36 @@
-package com.example.patienthistory.entity;
+package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Patient.class,
+@Entity(tableName = "physical_exam_table", foreignKeys = @ForeignKey(entity = Patient.class,
         parentColumns = "physicalExamId",
-        childColumns = "company_id",
+        childColumns = "physicalExamPatientId",
         onDelete = ForeignKey.CASCADE))
+
 public class PhysicalExam {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int patientId;
+    private int physicalExamPatientId;
 
     private String bloodPressure;
     private String heartRate;
 
-    public PhysicalExam(int patientId, String bloodPressure, String heartRate) {
-        this.patientId = patientId;
+    public PhysicalExam(int physicalExamPatientId, String bloodPressure, String heartRate) {
+        this.physicalExamPatientId = physicalExamPatientId;
         this.bloodPressure = bloodPressure;
         this.heartRate = heartRate;
     }
 
-    public int getId() {
-        return id;
+    public int getPhysicalExamPatientId() {
+        return physicalExamPatientId;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public void setPhysicalExamPatientId(int physicalExamPatientId) {
+        this.physicalExamPatientId = physicalExamPatientId;
     }
 
     public String getBloodPressure() {
