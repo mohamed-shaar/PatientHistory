@@ -1,6 +1,6 @@
-package com.example.patienthistory.dao;
+package com.example.patienthistory.room.dao;
 
-import com.example.patienthistory.entity.PatientWithData;
+import com.example.patienthistory.room.entities.Patient;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -13,14 +13,14 @@ import androidx.room.Update;
 public interface PatientDao {
 
     @Insert
-    void Insert(PatientWithData patientWithData);
+    void insert(Patient patient);
 
     @Update
-    void Update(PatientWithData patientWithData);
+    void update(Patient patient);
 
     @Delete
-    void Delete(PatientWithData patientWithData);
+    void delete(Patient patient);
 
     @Query("SELECT * FROM patient_table")
-    LiveData<PatientWithData> getData();
+    LiveData<Patient> getData();
 }

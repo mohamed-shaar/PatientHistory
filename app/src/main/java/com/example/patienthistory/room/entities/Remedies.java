@@ -1,42 +1,41 @@
-package com.example.patienthistory.entity;
+package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "remedies")
+@Entity(tableName = "remedies_table",
+        foreignKeys = @ForeignKey(entity = Patient.class,
+                parentColumns = "id",
+                childColumns = "remediesPatientId",
+                onDelete = ForeignKey.CASCADE),
+indices = {@Index("remediesPatientId")})
 public class Remedies {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int patientId;
+    private int remediesPatientId;
 
     private String name;
     private String startDate;
     private int dose;
     private String outcome;
 
-    public Remedies(int patientId, String name, String startDate, int dose, String outcome) {
-        this.patientId = patientId;
+    public Remedies(int remediesPatientId, String name, String startDate, int dose, String outcome) {
+        this.remediesPatientId = remediesPatientId;
         this.name = name;
         this.startDate = startDate;
         this.dose = dose;
         this.outcome = outcome;
     }
 
-    public int getId() {
-        return id;
+    public int getRemediesPatientId() {
+        return remediesPatientId;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public void setRemediesPatientId(int remediesPatientId) {
+        this.remediesPatientId = remediesPatientId;
     }
 
     public String getName() {
@@ -69,5 +68,13 @@ public class Remedies {
 
     public void setOutcome(String outcome) {
         this.outcome = outcome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
