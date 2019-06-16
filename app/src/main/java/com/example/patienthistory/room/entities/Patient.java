@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "patient_table", indices = {@Index("id")})
 public class Patient {
 
-    //patient attributes
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -20,37 +19,6 @@ public class Patient {
 
     private int numberOfChildren;
 
-
-    //foreign keys which are all the same value
-    /*private int allergiesId;
-
-    private int dietaryInformationId;
-
-    private int familyDiseasesId;
-
-    private int physicalExamId;
-
-    private int remediesId;
-
-    private int socialHabitId;
-
-    private int surgeryId;*/
-
-
-    /*public Patient(String address, String bloodType, String socialStatus, int numberOfChildren, int allergiesId, int dietaryInformationId, int familyDiseasesId, int physicalExamId, int remediesId, int socialHabitId, int surgeryId) {
-        this.address = address;
-        this.bloodType = bloodType;
-        this.socialStatus = socialStatus;
-        this.numberOfChildren = numberOfChildren;
-        this.allergiesId = allergiesId;
-        this.dietaryInformationId = dietaryInformationId;
-        this.familyDiseasesId = familyDiseasesId;
-        this.physicalExamId = physicalExamId;
-        this.remediesId = remediesId;
-        this.socialHabitId = socialHabitId;
-        this.surgeryId = surgeryId;
-    }*/
-
     public Patient(String address, String bloodType, String socialStatus, int numberOfChildren) {
         this.address = address;
         this.bloodType = bloodType;
@@ -58,7 +26,14 @@ public class Patient {
         this.numberOfChildren = numberOfChildren;
     }
 
-
+    @Ignore
+    public Patient(int id, String address, String bloodType, String socialStatus, int numberOfChildren) {
+        this.id = id;
+        this.address = address;
+        this.bloodType = bloodType;
+        this.socialStatus = socialStatus;
+        this.numberOfChildren = numberOfChildren;
+    }
 
     public int getId() {
         return id;

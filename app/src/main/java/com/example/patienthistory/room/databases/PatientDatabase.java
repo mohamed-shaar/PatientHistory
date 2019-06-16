@@ -2,6 +2,7 @@ package com.example.patienthistory.room.databases;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.patienthistory.room.dao.AllergiesDao;
 import com.example.patienthistory.room.dao.DietaryInformationDao;
@@ -21,6 +22,7 @@ import com.example.patienthistory.room.entities.SocialHabit;
 import com.example.patienthistory.room.entities.Surgery;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -95,7 +97,11 @@ public abstract  class PatientDatabase extends RoomDatabase {
             noteDao.insert(new Note("Title 2", "Description 2", 2));
             noteDao.insert(new Note("Title 3", "Description 3", 3));*/
 
-            //Todo add database info for first creation
+            /*patientDao.insert(new Patient("64 faisal", "A+", "single", 0));
+            patientDao.insert(new Patient("64 faisal", "A+", "single", 0));
+            patientDao.insert(new Patient("64 faisal", "A+", "single", 0));*/
+            //LiveData<Patient> retrievedObject = patientDao.getData();
+            //Log.d("work", retrievedObject.getValue().getBloodType());
 
 
             /*PatientWithData patientWithData = null;
@@ -129,7 +135,7 @@ public abstract  class PatientDatabase extends RoomDatabase {
             familyDiseases.setDiseaseName("Cancer");
             familyDiseases.setRelation("Grandparent");
 
-            Remedies remedies = null;
+            RemediesRepository remedies = null;
             remedies.setPatientId(1);
             remedies.setName("Herbs");
             remedies.setDose(20);

@@ -8,6 +8,13 @@
     android:background="@drawable/drimage"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv"
+        android:text="wolo"
+        android:textSize="30sp"/>
+
     <Button
         android:id="@+id/btn_sign_in"
         android:layout_width="wrap_content"
