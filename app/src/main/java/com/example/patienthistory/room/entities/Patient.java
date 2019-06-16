@@ -1,11 +1,11 @@
-package com.example.patienthistory.entity;
+package com.example.patienthistory.room.entities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "patient_personal_information")
+@Entity(tableName = "patient_table", indices = {@Index("id")})
 public class Patient {
 
     @PrimaryKey(autoGenerate = true)
@@ -19,10 +19,6 @@ public class Patient {
 
     private int numberOfChildren;
 
-    private String socialHabitId;
-
-    private String physicalExamId;
-
     public Patient(String address, String bloodType, String socialStatus, int numberOfChildren) {
         this.address = address;
         this.bloodType = bloodType;
@@ -30,20 +26,13 @@ public class Patient {
         this.numberOfChildren = numberOfChildren;
     }
 
-    public String getSocialHabitId() {
-        return socialHabitId;
-    }
-
-    public void setSocialHabitId(String socialHabitId) {
-        this.socialHabitId = socialHabitId;
-    }
-
-    public String getPhysicalExamId() {
-        return physicalExamId;
-    }
-
-    public void setPhysicalExamId(String physicalExamId) {
-        this.physicalExamId = physicalExamId;
+    @Ignore
+    public Patient(int id, String address, String bloodType, String socialStatus, int numberOfChildren) {
+        this.id = id;
+        this.address = address;
+        this.bloodType = bloodType;
+        this.socialStatus = socialStatus;
+        this.numberOfChildren = numberOfChildren;
     }
 
     public int getId() {
@@ -58,7 +47,7 @@ public class Patient {
         return address;
     }
 
-    public void setAddress(@Nullable String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -66,7 +55,7 @@ public class Patient {
         return bloodType;
     }
 
-    public void setBloodType(@NonNull String bloodType) {
+    public void setBloodType(String bloodType) {
         this.bloodType = bloodType;
     }
 
@@ -74,7 +63,7 @@ public class Patient {
         return socialStatus;
     }
 
-    public void setSocialStatus(@NonNull String socialStatus) {
+    public void setSocialStatus(String socialStatus) {
         this.socialStatus = socialStatus;
     }
 
