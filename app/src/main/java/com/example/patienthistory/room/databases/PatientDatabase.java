@@ -146,7 +146,7 @@ public abstract  class PatientDatabase extends RoomDatabase {
             patientWithData.remedies.add(remedies);
             patientWithData.surgeries.add(surgery);
 
-            patientDao.Insert(patientWithData);*/
+            patientDao.insert(patientWithData);*/
             return null;
         }
     }

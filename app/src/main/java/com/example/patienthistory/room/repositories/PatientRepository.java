@@ -39,7 +39,7 @@ public class PatientRepository {
 
         @Override
         protected Void doInBackground(Patient... patient) {
-            patientDao.Insert(patient[0]);
+            patientDao.insert(patient[0]);
             return null;
         }
     }
@@ -54,7 +54,7 @@ public class PatientRepository {
 
         @Override
         protected Void doInBackground(Patient... patient) {
-            patientDao.Update(patient[0]);
+            patientDao.update(patient[0]);
             return null;
         }
     }
@@ -69,7 +69,7 @@ public class PatientRepository {
 
         @Override
         protected Void doInBackground(Patient... patient) {
-            patientDao.Delete(patient[0]);
+            patientDao.delete(patient[0]);
             return null;
         }
     }

@@ -13,13 +13,13 @@ import androidx.room.Update;
 public interface PatientDao {
 
     @Insert
-    void Insert(Patient patient);
+    void insert(Patient patient);
 
     @Update
-    void Update(Patient patient);
+    void update(Patient patient);
 
     @Delete
-    void Delete(Patient patient);
+    void delete(Patient patient);
 
     @Query("SELECT * FROM patient_table")
     LiveData<Patient> getData();
