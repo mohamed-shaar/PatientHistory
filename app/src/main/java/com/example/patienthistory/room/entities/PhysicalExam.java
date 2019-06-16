@@ -2,12 +2,14 @@ package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "physical_exam_table", foreignKeys = @ForeignKey(entity = Patient.class,
-        parentColumns = "physicalExamId",
+        parentColumns = "id",
         childColumns = "physicalExamPatientId",
-        onDelete = ForeignKey.CASCADE))
+        onDelete = ForeignKey.CASCADE),
+        indices = {@Index("physicalExamPatientId")})
 
 public class PhysicalExam {
 
@@ -31,6 +33,14 @@ public class PhysicalExam {
 
     public void setPhysicalExamPatientId(int physicalExamPatientId) {
         this.physicalExamPatientId = physicalExamPatientId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBloodPressure() {

@@ -2,13 +2,15 @@ package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "remedies_table",
         foreignKeys = @ForeignKey(entity = Patient.class,
-                parentColumns = "remediesId",
+                parentColumns = "id",
                 childColumns = "remediesPatientId",
-                onDelete = ForeignKey.CASCADE))
+                onDelete = ForeignKey.CASCADE),
+indices = {@Index("remediesPatientId")})
 public class Remedies {
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -66,5 +68,13 @@ public class Remedies {
 
     public void setOutcome(String outcome) {
         this.outcome = outcome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

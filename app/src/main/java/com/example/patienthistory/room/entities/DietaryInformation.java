@@ -2,14 +2,16 @@ package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "dietary_information_table", foreignKeys = @ForeignKey(
         entity = Patient.class,
-        parentColumns = "dietaryInformationId",
+        parentColumns = "id",
         childColumns = "dietaryInformationPatientId",
         onDelete = ForeignKey.CASCADE
-))
+),
+indices = {@Index("dietaryInformationPatientId")})
 public class DietaryInformation {
 
     @PrimaryKey(autoGenerate = true)

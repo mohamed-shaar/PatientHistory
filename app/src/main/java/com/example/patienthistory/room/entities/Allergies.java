@@ -3,19 +3,20 @@ package com.example.patienthistory.room.entities;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "allergies_table",
         foreignKeys = @ForeignKey(entity = Patient.class,
-        parentColumns = "allergiesId",
+        parentColumns = "id",
         childColumns = "allergiesPatientId",
-        onDelete = ForeignKey.CASCADE))
+        onDelete = ForeignKey.CASCADE),
+        indices = {@Index("allergiesPatientId")})
 public class Allergies {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "allergiesPatientId")
     private int allergiesPatientId;
 
     private String allergyName;

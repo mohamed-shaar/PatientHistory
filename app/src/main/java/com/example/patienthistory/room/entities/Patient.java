@@ -2,13 +2,14 @@ package com.example.patienthistory.room.entities;
 
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "patient_table")
+@Entity(tableName = "patient_table", indices = {@Index("id")})
 public class Patient {
 
     //patient attributes
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String address;
@@ -21,7 +22,7 @@ public class Patient {
 
 
     //foreign keys which are all the same value
-    private int allergiesId;
+    /*private int allergiesId;
 
     private int dietaryInformationId;
 
@@ -33,11 +34,10 @@ public class Patient {
 
     private int socialHabitId;
 
-    private int surgeryId;
+    private int surgeryId;*/
 
-    @Ignore
-    public Patient(int id, String address, String bloodType, String socialStatus, int numberOfChildren, int allergiesId, int dietaryInformationId, int familyDiseasesId, int physicalExamId, int remediesId, int socialHabitId, int surgeryId) {
-        this.id = id;
+
+    /*public Patient(String address, String bloodType, String socialStatus, int numberOfChildren, int allergiesId, int dietaryInformationId, int familyDiseasesId, int physicalExamId, int remediesId, int socialHabitId, int surgeryId) {
         this.address = address;
         this.bloodType = bloodType;
         this.socialStatus = socialStatus;
@@ -49,21 +49,16 @@ public class Patient {
         this.remediesId = remediesId;
         this.socialHabitId = socialHabitId;
         this.surgeryId = surgeryId;
-    }
+    }*/
 
-    public Patient(String address, String bloodType, String socialStatus, int numberOfChildren, int allergiesId, int dietaryInformationId, int familyDiseasesId, int physicalExamId, int remediesId, int socialHabitId, int surgeryId) {
+    public Patient(String address, String bloodType, String socialStatus, int numberOfChildren) {
         this.address = address;
         this.bloodType = bloodType;
         this.socialStatus = socialStatus;
         this.numberOfChildren = numberOfChildren;
-        this.allergiesId = allergiesId;
-        this.dietaryInformationId = dietaryInformationId;
-        this.familyDiseasesId = familyDiseasesId;
-        this.physicalExamId = physicalExamId;
-        this.remediesId = remediesId;
-        this.socialHabitId = socialHabitId;
-        this.surgeryId = surgeryId;
     }
+
+
 
     public int getId() {
         return id;
@@ -103,61 +98,5 @@ public class Patient {
 
     public void setNumberOfChildren(int numberOfChildren) {
         this.numberOfChildren = numberOfChildren;
-    }
-
-    public int getAllergiesId() {
-        return allergiesId;
-    }
-
-    public void setAllergiesId(int allergiesId) {
-        this.allergiesId = allergiesId;
-    }
-
-    public int getDietaryInformationId() {
-        return dietaryInformationId;
-    }
-
-    public void setDietaryInformationId(int dietaryInformationId) {
-        this.dietaryInformationId = dietaryInformationId;
-    }
-
-    public int getFamilyDiseasesId() {
-        return familyDiseasesId;
-    }
-
-    public void setFamilyDiseasesId(int familyDiseasesId) {
-        this.familyDiseasesId = familyDiseasesId;
-    }
-
-    public int getPhysicalExamId() {
-        return physicalExamId;
-    }
-
-    public void setPhysicalExamId(int physicalExamId) {
-        this.physicalExamId = physicalExamId;
-    }
-
-    public int getRemediesId() {
-        return remediesId;
-    }
-
-    public void setRemediesId(int remediesId) {
-        this.remediesId = remediesId;
-    }
-
-    public int getSocialHabitId() {
-        return socialHabitId;
-    }
-
-    public void setSocialHabitId(int socialHabitId) {
-        this.socialHabitId = socialHabitId;
-    }
-
-    public int getSurgeryId() {
-        return surgeryId;
-    }
-
-    public void setSurgeryId(int surgeryId) {
-        this.surgeryId = surgeryId;
     }
 }
