@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
                 childColumns = "remediesPatientId",
                 onDelete = ForeignKey.CASCADE))
 public class Remedies {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     private int remediesPatientId;
