@@ -2,4 +2,8 @@
     <string name="app_name">PatientHistory</string>
     <string name="sign_in">Sign In</string>
     <string name="register">Register</string>
+    <string name="log_in">Log in</string>
+    <string name="username">Username</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
 </resources>
