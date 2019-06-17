@@ -39,7 +39,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/edit_text_background"
-            android:hint=""
             android:inputType="text"
             android:textSize="30sp" />
 
@@ -60,7 +59,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/edit_text_background"
-            android:hint=""
             android:inputType="textEmailAddress"
             android:textSize="30sp" />
 
@@ -81,7 +79,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/edit_text_background"
-            android:hint=""
             android:inputType="textVisiblePassword"
             android:textSize="30sp" />
 
@@ -102,7 +99,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/edit_text_background"
-            android:hint=""
             android:inputType="textVisiblePassword"
             android:textSize="30sp" />
 
@@ -110,11 +106,12 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/iv_right_arrow_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:padding="20dp"
-        android:src="@drawable/ic_right_arrow"/>
+        android:src="@drawable/ic_right_arrow" />
 
 </RelativeLayout>
