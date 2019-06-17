@@ -48,7 +48,7 @@ public class SignUpInfoActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        tv_logIn = findViewById(R.id.log_in);
+        tv_logIn = findViewById(R.id.log_in_sign_up);
         et_username = findViewById(R.id.et_username);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
@@ -58,13 +58,12 @@ public class SignUpInfoActivity extends AppCompatActivity {
         iv_right_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 extractUsername();
                 extractEmail();
                 extractPasswordAndConfirm();
                 if (usernameFilled && emailFilled && passwordConfirmed){
-                    Intent intent = new Intent(SignUpInfoActivity.this, ContactInfoActivity.class);
                     editor.apply();
+                    Intent intent = new Intent(SignUpInfoActivity.this, ContactInfoActivity.class);
                     startActivity(intent);
                 }
             }
