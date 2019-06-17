@@ -49,7 +49,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         et_phone_number = findViewById(R.id.et_phone_number);
         et_full_name = findViewById(R.id.et_full_name);
         et_age = findViewById(R.id.et_age);
-        et_gender = findViewById(R.id.et_age);
+        et_gender = findViewById(R.id.et_gender);
         iv_right_arrow = findViewById(R.id.iv_right_arrow_contact_info);
         iv_left_arrow = findViewById(R.id.iv_left_arrow_contact_info);
 
