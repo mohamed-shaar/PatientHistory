@@ -64,6 +64,7 @@ public class SignUpInfoActivity extends AppCompatActivity {
                 extractPasswordAndConfirm();
                 if (usernameFilled && emailFilled && passwordConfirmed){
                     Intent intent = new Intent(SignUpInfoActivity.this, ContactInfoActivity.class);
+                    editor.apply();
                     startActivity(intent);
                 }
             }
