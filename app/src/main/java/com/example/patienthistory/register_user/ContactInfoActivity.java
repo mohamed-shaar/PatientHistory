@@ -63,6 +63,10 @@ public class ContactInfoActivity extends AppCompatActivity {
         iv_right_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                extractPhoneNumber();
+                extractAge();
+                extractFullName();
+                extractGender();
                 editor.apply();
                 Intent intent = new Intent(ContactInfoActivity.this, PersonalInfoActivity.class);
                 startActivity(intent);
