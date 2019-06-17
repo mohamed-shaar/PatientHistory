@@ -45,7 +45,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        tv_log_in = findViewById(R.id.log_in_contact);
+        tv_log_in = findViewById(R.id.log_in_personal);
         et_phone_number = findViewById(R.id.et_phone_number);
         et_full_name = findViewById(R.id.et_full_name);
         et_age = findViewById(R.id.et_age);
