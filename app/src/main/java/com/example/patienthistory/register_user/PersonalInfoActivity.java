@@ -86,7 +86,7 @@ public class PersonalInfoActivity extends AppCompatActivity {
     }
 
     private void extractCountry(){
-        country = et_country.getText().toString();
+        country = et_country.getText().toString().trim();
         if (country.isEmpty()){
             Toast.makeText(this, "Please enter a country.", Toast.LENGTH_SHORT).show();
         }

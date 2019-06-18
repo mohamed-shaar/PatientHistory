@@ -34,6 +34,11 @@ public class ContactInfoActivity extends AppCompatActivity {
     private int age;
     private String gender;
 
+    private boolean phoneNumberFilled = false;
+    private boolean fullNameFilled = false;
+    private boolean ageFilled = false;
+    private boolean genderFilled = false;
+
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -67,21 +72,24 @@ public class ContactInfoActivity extends AppCompatActivity {
                 extractAge();
                 extractFullName();
                 extractGender();
-                editor.apply();
-                Intent intent = new Intent(ContactInfoActivity.this, PersonalInfoActivity.class);
-                startActivity(intent);
+                if (phoneNumberFilled && fullNameFilled && genderFilled && ageFilled){
+                    editor.apply();
+                    Intent intent = new Intent(ContactInfoActivity.this, PersonalInfoActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
 
     private void extractPhoneNumber(){
-        phone_number = et_phone_number.getText().toString();
-        if (phone_number.length() == 10){
-            int phone_number = Integer.parseInt(et_phone_number.getText().toString());
-            editor.putInt(PHONE_NUMBER, phone_number);
+        phone_number = et_phone_number.getText().toString().trim();
+        if (phone_number.isEmpty()){
+            //int phone_number = Integer.parseInt(et_phone_number.getText().toString());
+            Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show();
+            editor.putString(PHONE_NUMBER, phone_number);
+            phoneNumberFilled = true;
         }
     }
 
@@ -92,13 +100,15 @@ public class ContactInfoActivity extends AppCompatActivity {
         }
         else {
             editor.putString(FULL_NAME, full_name);
+            fullNameFilled = true;
         }
     }
 
     private void extractAge(){
-        age = Integer.parseInt(et_age.getText().toString());
+        age = Integer.parseInt(et_age.getText().toString().trim());
         if (age >= 18 && age <= 120){
             editor.putInt(AGE, age);
+            ageFilled = true;
         }
         else {
             Toast.makeText(this, "You must be between 18 and 120 years old.", Toast.LENGTH_SHORT).show();
@@ -106,7 +116,7 @@ public class ContactInfoActivity extends AppCompatActivity {
     }
 
     private void extractGender(){
-        gender = et_gender.getText().toString();
+        gender = et_gender.getText().toString().trim();
         if (gender.isEmpty()){
             Toast.makeText(this, "Please specify gender", Toast.LENGTH_SHORT).show();
         }
@@ -115,6 +125,7 @@ public class ContactInfoActivity extends AppCompatActivity {
                 gender.equals("Female") ||
                 gender.equals("female")){
             editor.putString(GENDER, gender);
+            genderFilled = true;
         }
         else {
             Toast.makeText(this, "Please specify a valid gender.", Toast.LENGTH_SHORT).show();
