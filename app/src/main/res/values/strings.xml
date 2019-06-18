@@ -17,9 +17,7 @@
     <string name="city">City</string>
     <string name="job">Job</string>
     <string name="finish_sign_up">Finish Sign Up</string>
-    <string name="i_have_read_and_agree_to_the_terms_and_conditions">
-        <font color="#ffffff">I have read and agree to the </font>
-        Terms and Conditions.</string>
+    <string name="i_have_read_and_agree_to_the_terms_and_conditions">I have read and agree to the Terms and Conditions.</string>
     <string name="pick_profile_picture">Pick Profile picture</string>
     <string name="profile_picture">Profile Picture</string>
 </resources>
