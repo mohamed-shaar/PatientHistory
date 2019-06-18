@@ -9,23 +9,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <Button
+            android:id="@+id/btn_pick_profile_picture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/button_shape"
             android:padding="5dp"
-            android:text="@string/pick_profile_picture" />
+            android:text="@string/pick_profile_picture"
+            android:layout_weight="1"/>
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="40dp"
+            android:id="@+id/iv_profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:contentDescription="@string/profile_picture"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <CheckBox
@@ -33,8 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:buttonTint="#ffffff"
-        android:scaleX="1.1"
-        android:scaleY="1.1"
         android:text="@string/i_have_read_and_agree_to_the_terms_and_conditions"
         android:textColor="@color/grey" />
 
