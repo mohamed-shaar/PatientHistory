@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".register_user.PickImageAndConfirmActivity"/>
+        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".register_user.PickImageAndConfirmActivity" />
         <activity android:name=".register_user.PersonalInfoActivity" />
         <activity android:name=".register_user.ContactInfoActivity" />
         <activity android:name=".register_user.SignUpInfoActivity" />
