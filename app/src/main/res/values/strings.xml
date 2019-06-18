@@ -24,4 +24,5 @@
 
     <!-- for http requests-->
     <string name="localhost">192.168.1.39</string>
+    <string name="port">:3000</string>
 </resources>
