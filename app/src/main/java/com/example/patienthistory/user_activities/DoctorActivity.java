@@ -45,6 +45,7 @@ public class DoctorActivity extends AppCompatActivity {
                             break;
                         case R.id.doctor_chats:
                             fragment = new ChatFragment();
+                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.doctor_frame_layout, fragment).commit();
                     return true;
