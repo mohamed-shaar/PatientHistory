@@ -7,7 +7,6 @@ import com.example.patienthistory.R;
 import com.example.patienthistory.fragments.ChatFragment;
 import com.example.patienthistory.fragments.DataFragment;
 import com.example.patienthistory.fragments.FindFragment;
-import com.example.patienthistory.fragments.PatientsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +24,7 @@ public class PatientActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.patient_bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.patient_frame_layout, new PatientsFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.patient_frame_layout, new DataFragment()).commit();
 
     }
 
@@ -35,16 +34,16 @@ public class PatientActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment fragment = null;
                     switch (item.getItemId()){
-                        case R.id.doctor_patients:
+                        case R.id.patient_data:
                             fragment = new DataFragment();
                             break;
-                        case R.id.doctor_clinic:
+                        case R.id.patient_find:
                             fragment = new FindFragment();
                             break;
-                        case R.id.doctor_chats:
+                        case R.id.patient_chat:
                             fragment = new ChatFragment();
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.doctor_frame_layout, fragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.patient_frame_layout, fragment).commit();
                     return true;
                 }
             };

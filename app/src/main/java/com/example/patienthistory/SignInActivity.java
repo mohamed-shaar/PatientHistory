@@ -12,7 +12,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.patienthistory.user_activities.DoctorActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +43,7 @@ public class SignInActivity extends AppCompatActivity {
 
                 String url = String.valueOf(R.string.localhost + R.string.port);
 
-                Intent intent = new Intent(SignInActivity.this, DoctorActivity.class);
+                Intent intent = new Intent(SignInActivity.this, TempActivity.class);
                 startActivity(intent);
 
                 JsonObjectRequest signIn = new JsonObjectRequest(Request.Method.GET,
