@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    tools:context=".TempActivity">
+
+    <Button
+        android:id="@+id/btn_patient_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/patient"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_shape"
+        android:layout_above="@+id/btn_doctor_view"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_doctor_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/doctor"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_shape"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_assistant_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/assistant"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_shape"
+        android:layout_below="@+id/btn_doctor_view"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

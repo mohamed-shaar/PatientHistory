@@ -1,5 +1,6 @@
 package com.example.patienthistory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,6 +42,9 @@ public class SignInActivity extends AppCompatActivity {
                 String password = et_password.getText().toString().trim();
 
                 String url = String.valueOf(R.string.localhost + R.string.port);
+
+                Intent intent = new Intent(SignInActivity.this, TempActivity.class);
+                startActivity(intent);
 
                 JsonObjectRequest signIn = new JsonObjectRequest(Request.Method.GET,
                         url,
