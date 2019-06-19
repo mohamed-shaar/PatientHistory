@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AssistantActivity"></activity>
-        <activity android:name=".DoctorActivity" />
-        <activity android:name=".PatientActivity" />
+        <activity android:name=".user_activities.AssistantActivity"/>
+        <activity android:name=".user_activities.DoctorActivity" />
+        <activity android:name=".user_activities.PatientActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".register_user.PickImageAndConfirmActivity" />
         <activity android:name=".register_user.PersonalInfoActivity" />

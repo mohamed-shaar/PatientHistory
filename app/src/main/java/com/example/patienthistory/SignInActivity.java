@@ -1,5 +1,6 @@
 package com.example.patienthistory;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.patienthistory.user_activities.DoctorActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +43,9 @@ public class SignInActivity extends AppCompatActivity {
                 String password = et_password.getText().toString().trim();
 
                 String url = String.valueOf(R.string.localhost + R.string.port);
+
+                Intent intent = new Intent(SignInActivity.this, DoctorActivity.class);
+                startActivity(intent);
 
                 JsonObjectRequest signIn = new JsonObjectRequest(Request.Method.GET,
                         url,
