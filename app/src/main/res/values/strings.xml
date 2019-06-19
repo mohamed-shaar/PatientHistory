@@ -25,4 +25,12 @@
     <!-- for http requests-->
     <string name="localhost">192.168.1.39</string>
     <string name="port">:3000</string>
+    <string name="patients">Patients</string>
+    <string name="clinic">Clinic</string>
+    <string name="posts">Posts</string>
+    <string name="chats">Chats</string>
+    <string name="data">Data</string>
+    <string name="search">Search</string>
+    <string name="sessions">Sessions</string>
+    <string name="bookings">Bookings</string>
 </resources>

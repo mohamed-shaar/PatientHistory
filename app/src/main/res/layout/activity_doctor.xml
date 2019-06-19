@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blueDark"
-    tools:context=".PatientActivity">
+    tools:context=".DoctorActivity">
 
     <FrameLayout
-        android:id="@+id/patient_frame_layout"
+        android:id="@+id/doctor_frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/patient_bottom_nav" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/doctor_bottom_nav"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/patient_bottom_nav"
+        android:id="@+id/doctor_bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#E0E0E0"
-        app:menu="@menu/navigation_patient" />
+        app:menu="@menu/navigation_doctor"
+        android:background="#E0E0E0"/>
 
 </RelativeLayout>
