@@ -38,4 +38,6 @@
     <string name="patient">Patient</string>
     <string name="assistant">Assistant</string>
     <string name="sessions">Sessions</string>
+    <string name="medicine_channel">MedicineChannel</string>
+    <string name="chat_channel">Chat Channel</string>
 </resources>
