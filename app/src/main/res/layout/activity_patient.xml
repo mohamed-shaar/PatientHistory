@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    tools:context=".user_activities.PatientActivity">
+
+    <FrameLayout
+        android:id="@+id/patient_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/patient_bottom_nav" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/patient_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E0E0E0"
+        app:menu="@menu/navigation_patient" />
+
+</RelativeLayout>
