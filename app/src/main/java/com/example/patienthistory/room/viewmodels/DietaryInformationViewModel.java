@@ -26,6 +26,10 @@ public class DietaryInformationViewModel extends AndroidViewModel {
         dietaryInformationRepository.insert(dietaryInformation);
     }
 
+    public void update(DietaryInformation dietaryInformation){
+        dietaryInformationRepository.update(dietaryInformation);
+    }
+
     public void delete(DietaryInformation dietaryInformation){
         dietaryInformationRepository.delete(dietaryInformation);
     }

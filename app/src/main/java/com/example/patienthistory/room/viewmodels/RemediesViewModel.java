@@ -24,6 +24,8 @@ public class RemediesViewModel extends AndroidViewModel {
 
     public void insert(Remedies remedies) { remediesRepository.insert(remedies);}
 
+    public void update(Remedies remedies){ remediesRepository.insert(remedies);}
+
     public void delete(Remedies remedies){ remediesRepository.delete(remedies);}
 
     public void deleteAll(){ remediesRepository.deleteAll();}

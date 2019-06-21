@@ -9,6 +9,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface RemediesDao {
@@ -18,6 +19,9 @@ public interface RemediesDao {
 
     @Delete
     void delete(Remedies remedies);
+
+    @Update
+    void update(Remedies remedies);
 
     @Query("DELETE FROM remedies_table")
     void deleteAllRemedies();

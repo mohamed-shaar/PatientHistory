@@ -4,10 +4,8 @@ import android.app.Application;
 import android.os.AsyncTask;
 
 import com.example.patienthistory.room.dao.DietaryInformationDao;
-import com.example.patienthistory.room.dao.PatientDao;
 import com.example.patienthistory.room.databases.PatientDatabase;
 import com.example.patienthistory.room.entities.DietaryInformation;
-import com.example.patienthistory.room.entities.Patient;
 
 import java.util.List;
 
@@ -26,6 +24,8 @@ public class DietaryInformationRepository {
     }
 
     public void insert(DietaryInformation dietaryInformation) {new InsertDietaryInformationAsyncTask(dietaryInformationDao).execute(dietaryInformation);}
+
+    public void update(DietaryInformation dietaryInformation){new UpdateDietaryInformationAsyncTask(dietaryInformationDao).execute(dietaryInformation);}
 
     public void delete(DietaryInformation dietaryInformation){ new DeleteDietaryInformationAsyncTask(dietaryInformationDao).execute(dietaryInformation);}
 
@@ -74,6 +74,21 @@ public class DietaryInformationRepository {
         @Override
         protected Void doInBackground(DietaryInformation... dietaryInformation) {
             dietaryInformationDao.deleteAllDietaryInformation();
+            return null;
+        }
+    }
+
+    private static class UpdateDietaryInformationAsyncTask extends AsyncTask<DietaryInformation, Void, Void> {
+
+        private DietaryInformationDao dietaryInformationDao;
+
+        private UpdateDietaryInformationAsyncTask(DietaryInformationDao dietaryInformationDao) {
+            this.dietaryInformationDao = dietaryInformationDao;
+        }
+
+        @Override
+        protected Void doInBackground(DietaryInformation... dietaryInformation) {
+            dietaryInformationDao.update(dietaryInformation[0]);
             return null;
         }
     }

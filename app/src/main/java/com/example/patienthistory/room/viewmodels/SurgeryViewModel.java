@@ -26,6 +26,8 @@ public class SurgeryViewModel extends AndroidViewModel {
         surgeryRepository.insert(surgery);
     }
 
+    public void update(Surgery surgery){ surgeryRepository.update(surgery);}
+
     public void delete(Surgery surgery){
         surgeryRepository.delete(surgery);
     }
