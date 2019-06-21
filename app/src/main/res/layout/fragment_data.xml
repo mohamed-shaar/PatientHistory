@@ -74,6 +74,14 @@
             android:background="@drawable/button_shape"
             android:text="@string/surgeries" />
 
+        <Button
+            android:id="@+id/btn_patient_view_all_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/view_all_data" />
+
     </LinearLayout>
 
 </ScrollView>

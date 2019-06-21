@@ -24,6 +24,7 @@ public class DataFragment extends Fragment {
     private Button btn_patient_social_habit;
     private Button btn_patient_physical_exam;
     private Button btn_patient_surgeries;
+    private Button btn_patient_view_all_data;
 
     @Nullable
     @Override
@@ -38,6 +39,7 @@ public class DataFragment extends Fragment {
         btn_patient_social_habit = view.findViewById(R.id.btn_patient_social_habit);
         btn_patient_physical_exam = view.findViewById(R.id.btn_patient_physical_exam);
         btn_patient_surgeries = view.findViewById(R.id.btn_patient_surgeries);
+        btn_patient_view_all_data = view.findViewById(R.id.btn_patient_view_all_data);
 
         btn_patient_data.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,90 @@ public class DataFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AddFamilyDiseasesFragment fragment = new AddFamilyDiseasesFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_dietary_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddDietaryInformationFragment fragment = new AddDietaryInformationFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_allergies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddAllergy fragment = new AddAllergy();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_remedies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddRemediesFragment fragment  = new AddRemediesFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_social_habit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddSocialHabitFragment fragment = new AddSocialHabitFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_physical_exam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddPhysicalExamFragment fragment = new AddPhysicalExamFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_surgeries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddSurgeryFragment fragment = new AddSurgeryFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        btn_patient_view_all_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewAllPatientDataFragment fragment = new ViewAllPatientDataFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.patient_frame_layout, fragment);

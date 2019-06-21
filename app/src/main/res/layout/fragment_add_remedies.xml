@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blueDark"
-    tools:context=".fragments.AddFamilyDiseasesFragment">
+    tools:context=".fragments.AddRemediesFragment">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,28 +14,49 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/et_patient_disease_name"
+            android:id="@+id/et_patient_remedies_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text_background"
-            android:hint="@string/disease_name"
+            android:hint="@string/remedy_name"
             android:inputType="text"
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/et_patient_relative"
+            android:id="@+id/et_patient_remedies_start_Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/edit_text_background"
-            android:hint="@string/relative"
-            android:inputType="text"
+            android:hint="@string/start_date"
+            android:inputType="date"
             android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/et_patient_remedies_dose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/dose"
+            android:inputType="numberDecimal"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/et_patient_remedies_outcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/outcome"
+            android:inputType="textMultiLine"
+            android:padding="10dp" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_patient_family_diseases_done"
+        android:id="@+id/btn_patient_remedies_done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -23,7 +23,7 @@
 
 
     <!-- for http requests-->
-    <string name="localhost">192.168.1.39</string>
+    <string name="localhost">192.168.88.141</string>
     <string name="port">:3000</string>
     <string name="patients">Patients</string>
     <string name="clinic">Clinic</string>
@@ -56,4 +56,18 @@
     <string name="done">Done</string>
     <string name="disease_name">Disease Name</string>
     <string name="relative">Relative</string>
+    <string name="restrictions">Restrictions</string>
+    <string name="supplements">Supplements</string>
+    <string name="enter_allergies">Enter Allergies</string>
+    <string name="remedy_name">Remedy Name</string>
+    <string name="start_date">Start Date</string>
+    <string name="dose">Dose in mg</string>
+    <string name="outcome">Outcome</string>
+    <string name="tobacco">Tobacco</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="illicit_drugs">Illicit Drugs</string>
+    <string name="please_enter_true_or_false">Please Enter true or false.</string>
+    <string name="blood_pressure">Blood Pressure</string>
+    <string name="heart_rate">Heart Rate</string>
+    <string name="view_all_data">View All Data</string>
 </resources>
