@@ -31,4 +31,6 @@ public class SocialHabitViewModel extends AndroidViewModel {
     public void delete(SocialHabit socialHabit){
         socialHabitRepository.delete(socialHabit);
     }
+
+    public LiveData<SocialHabit> getSocialHabitLiveData() {return socialHabitRepository.getSocialHabitLiveData();}
 }

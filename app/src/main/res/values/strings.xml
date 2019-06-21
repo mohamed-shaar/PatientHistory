@@ -63,4 +63,8 @@
     <string name="start_date">Start Date</string>
     <string name="dose">Dose in mg</string>
     <string name="outcome">Outcome</string>
+    <string name="tobacco">Tobacco</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="illicit_drugs">Illicit Drugs</string>
+    <string name="please_enter_true_or_false">Please Enter true or false.</string>
 </resources>
