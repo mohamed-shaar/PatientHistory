@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_background"
             android:hint="@string/enter_blood_type"
-            android:inputType="textMultiLine"
+            android:inputType="text"
             android:textSize="20sp"
             android:padding="10dp"
             android:layout_margin="10dp"/>
