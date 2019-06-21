@@ -54,4 +54,6 @@
     <string name="enter_social_status">Enter Social Status</string>
     <string name="enter_number_of_children">Enter Number of Children</string>
     <string name="done">Done</string>
+    <string name="disease_name">Disease Name</string>
+    <string name="relative">Relative</string>
 </resources>
