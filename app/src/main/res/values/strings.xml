@@ -23,7 +23,7 @@
 
 
     <!-- for http requests-->
-    <string name="localhost">192.168.1.39</string>
+    <string name="localhost">192.168.88.141</string>
     <string name="port">:3000</string>
     <string name="patients">Patients</string>
     <string name="clinic">Clinic</string>
