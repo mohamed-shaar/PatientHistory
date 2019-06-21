@@ -83,18 +83,18 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tv_confirmPassword"
+            android:id="@+id/tv_enter_national_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:text="@string/confirm_password"
+            android:text="@string/national_id"
             android:textColor="#ffffff"
             android:textSize="25sp" />
 
         <EditText
-            android:id="@+id/et_confirmPassword"
+            android:id="@+id/et_nationalId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"

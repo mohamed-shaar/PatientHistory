@@ -23,7 +23,7 @@
 
 
     <!-- for http requests-->
-    <string name="localhost">192.168.88.141</string>
+    <string name="localhost">http://192.168.88.141</string>
     <string name="port">:3000</string>
     <string name="patients">Patients</string>
     <string name="clinic">Clinic</string>
@@ -70,4 +70,5 @@
     <string name="blood_pressure">Blood Pressure</string>
     <string name="heart_rate">Heart Rate</string>
     <string name="view_all_data">View All Data</string>
+    <string name="national_id">National Id</string>
 </resources>
