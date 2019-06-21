@@ -1,7 +1,6 @@
 package com.example.patienthistory.room.viewmodels;
 
 import android.app.Application;
-import android.database.sqlite.SQLiteConstraintException;
 
 import com.example.patienthistory.room.entities.FamilyDiseases;
 import com.example.patienthistory.room.repositories.FamilyDiseasesRepository;
@@ -26,6 +25,10 @@ public class FamilyDiseasesViewModel extends AndroidViewModel {
     public void insert(FamilyDiseases familyDiseases){ familyDiseasesRepository.insert(familyDiseases);}
 
     public void delete(FamilyDiseases familyDiseases){ familyDiseasesRepository.delete(familyDiseases);}
+
+    public void update(FamilyDiseases familyDiseases) { familyDiseasesRepository.update(familyDiseases);}
+
+    public LiveData<List<FamilyDiseases>> getAllFamilyDiseases() {return allFamilyDiseases;}
 
     public void deleteAll(){ familyDiseasesRepository.deleteAll();}
 }

@@ -26,6 +26,8 @@ public class AllergiesViewModel extends AndroidViewModel {
 
     public void delete(Allergies allergies) {allergiesRepository.delete(allergies);}
 
+    public void update(Allergies allergies) {allergiesRepository.update(allergies);}
+
     public void deleteAllAllergies() { allergiesRepository.deleteAllAllergies();}
 
     public LiveData<List<Allergies>> getAllAllergies() {return allAllergies;}

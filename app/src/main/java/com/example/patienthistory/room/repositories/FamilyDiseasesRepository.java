@@ -4,10 +4,8 @@ import android.app.Application;
 import android.os.AsyncTask;
 
 import com.example.patienthistory.room.dao.FamilyDiseasesDao;
-import com.example.patienthistory.room.dao.PatientDao;
 import com.example.patienthistory.room.databases.PatientDatabase;
 import com.example.patienthistory.room.entities.FamilyDiseases;
-import com.example.patienthistory.room.entities.Patient;
 
 import java.util.List;
 
@@ -40,9 +38,11 @@ public class FamilyDiseasesRepository {
         }
     }
 
-    public void insert(FamilyDiseases familyDiseases) { new InsertFamilyDiseasesAsyncTask(familyDiseasesDao);}
+    public void insert(FamilyDiseases familyDiseases) { new InsertFamilyDiseasesAsyncTask(familyDiseasesDao).execute(familyDiseases);}
 
-    public void delete(FamilyDiseases familyDiseases) { new DeleteFamilyDiseasesAsyncTask(familyDiseasesDao);}
+    public void update(FamilyDiseases familyDiseases){ new UpdateFamilyDiseasesAsyncTask(familyDiseasesDao).execute(familyDiseases);}
+
+    public void delete(FamilyDiseases familyDiseases) { new DeleteFamilyDiseasesAsyncTask(familyDiseasesDao).execute(familyDiseases);}
 
     public void deleteAll(){ new DeleteAllFamilyDiseasesAsyncTask(familyDiseasesDao);}
 
@@ -76,6 +76,21 @@ public class FamilyDiseasesRepository {
         @Override
         protected Void doInBackground(FamilyDiseases... familyDiseases) {
             familyDiseasesDao.deleteAllFamilyDiseases();
+            return null;
+        }
+    }
+
+    private static class UpdateFamilyDiseasesAsyncTask extends AsyncTask<FamilyDiseases, Void, Void> {
+
+        private FamilyDiseasesDao familyDiseasesDao;
+
+        private UpdateFamilyDiseasesAsyncTask(FamilyDiseasesDao familyDiseasesDao) {
+            this.familyDiseasesDao = familyDiseasesDao;
+        }
+
+        @Override
+        protected Void doInBackground(FamilyDiseases... familyDiseases) {
+            familyDiseasesDao.update(familyDiseases[0]);
             return null;
         }
     }
