@@ -3,10 +3,8 @@ package com.example.patienthistory.room.repositories;
 import android.app.Application;
 import android.os.AsyncTask;
 
-import com.example.patienthistory.room.dao.PatientDao;
 import com.example.patienthistory.room.dao.SurgeryDao;
 import com.example.patienthistory.room.databases.PatientDatabase;
-import com.example.patienthistory.room.entities.Patient;
 import com.example.patienthistory.room.entities.Surgery;
 
 import java.util.List;
@@ -25,6 +23,8 @@ public class SurgeryRepository {
     }
 
     public void insert(Surgery surgery){ new InsertSurgeryAsyncTask(surgeryDao).execute(surgery);}
+
+    public void update(Surgery surgery){ new UpdateSurgeryAsyncTask(surgeryDao).execute(surgery);}
 
     public void delete(Surgery surgery){ new DeleteSurgeryAsyncTask(surgeryDao).execute(surgery);}
 
@@ -75,6 +75,21 @@ public class SurgeryRepository {
         @Override
         protected Void doInBackground(Surgery... surgeries) {
             surgeryDao.deleteAllSurgeries();
+            return null;
+        }
+    }
+
+    private static class UpdateSurgeryAsyncTask extends AsyncTask<Surgery, Void, Void> {
+
+        private SurgeryDao surgeryDao;
+
+        private UpdateSurgeryAsyncTask(SurgeryDao surgeryDao) {
+            this.surgeryDao = surgeryDao;
+        }
+
+        @Override
+        protected Void doInBackground(Surgery... surgeries) {
+            surgeryDao.update(surgeries[0]);
             return null;
         }
     }

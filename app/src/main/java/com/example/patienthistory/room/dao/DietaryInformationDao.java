@@ -9,6 +9,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface DietaryInformationDao {
@@ -18,6 +19,9 @@ public interface DietaryInformationDao {
 
     @Delete
     void delete(DietaryInformation dietaryInformation);
+
+    @Update
+    void update(DietaryInformation dietaryInformation);
 
     @Query("DELETE FROM dietary_information_table")
     void deleteAllDietaryInformation();

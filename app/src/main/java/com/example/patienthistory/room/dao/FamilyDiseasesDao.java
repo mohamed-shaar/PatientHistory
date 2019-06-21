@@ -9,6 +9,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 @Dao
 public interface FamilyDiseasesDao {
@@ -18,6 +19,9 @@ public interface FamilyDiseasesDao {
 
     @Delete
     void delete(FamilyDiseases familyDiseases);
+
+    @Update
+    void update(FamilyDiseases familyDiseases);
 
     @Query("DELETE FROM family_diseases_table")
     void deleteAllFamilyDiseases();

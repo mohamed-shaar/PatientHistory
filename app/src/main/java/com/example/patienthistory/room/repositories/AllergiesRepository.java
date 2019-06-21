@@ -4,10 +4,8 @@ import android.app.Application;
 import android.os.AsyncTask;
 
 import com.example.patienthistory.room.dao.AllergiesDao;
-import com.example.patienthistory.room.dao.PatientDao;
 import com.example.patienthistory.room.databases.PatientDatabase;
 import com.example.patienthistory.room.entities.Allergies;
-import com.example.patienthistory.room.entities.Patient;
 
 import java.util.List;
 
@@ -25,6 +23,8 @@ public class AllergiesRepository {
     }
 
     public void insert(Allergies allergies){ new InsertAllergiesAsyncTask(allergiesDao).execute(allergies);}
+
+    public void update(Allergies allergies){ new UpdateAllergiesAsyncTask(allergiesDao).execute(allergies);}
 
     public void delete(Allergies allergies){ new DeleteAllergiesAsyncTask(allergiesDao).execute(allergies);}
 
@@ -73,6 +73,21 @@ public class AllergiesRepository {
         @Override
         protected Void doInBackground(Allergies... allergies) {
             allergiesDao.deleteAllAllergies();
+            return null;
+        }
+    }
+
+    private static class UpdateAllergiesAsyncTask extends AsyncTask<Allergies, Void, Void> {
+
+        private AllergiesDao allergiesDao;
+
+        private UpdateAllergiesAsyncTask(AllergiesDao allergiesDao) {
+            this.allergiesDao = allergiesDao;
+        }
+
+        @Override
+        protected Void doInBackground(Allergies... allergies) {
+            allergiesDao.Update(allergies[0]);
             return null;
         }
     }
