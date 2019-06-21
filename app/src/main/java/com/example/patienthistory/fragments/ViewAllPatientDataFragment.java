@@ -66,15 +66,6 @@ public class ViewAllPatientDataFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_all_patient_data, container, false);
 
-        tv_patient_data_view = view.findViewById(R.id.tv_patient_data_view);
-        tv_patient_family_diseases_view = view.findViewById(R.id.tv_patient_family_diseases_view);
-        tv_patient_allergies_view = view.findViewById(R.id.tv_patient_allergies_view);
-        tv_patient_dietary_information_view = view.findViewById(R.id.tv_patient_dietary_information_view);
-        tv_patient_remedies_view = view.findViewById(R.id.tv_patient_remedies_view);
-        tv_patient_social_habit_view = view.findViewById(R.id.tv_patient_social_habit_view);
-        tv_patient_physical_exam_view = view.findViewById(R.id.tv_patient_physical_exam_view);
-        tv_patient_surgeries_view = view.findViewById(R.id.tv_patient_surgeries_view);
-
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
         familyDiseasesViewModel = ViewModelProviders.of(this).get(FamilyDiseasesViewModel.class);
         allergiesViewModel = ViewModelProviders.of(this).get(AllergiesViewModel.class);
@@ -85,11 +76,22 @@ public class ViewAllPatientDataFragment extends Fragment {
         surgeryViewModel = ViewModelProviders.of(this).get(SurgeryViewModel.class);
 
 
+        tv_patient_data_view = view.findViewById(R.id.tv_patient_data_view);
+        tv_patient_family_diseases_view = view.findViewById(R.id.tv_patient_family_diseases_view);
+        tv_patient_allergies_view = view.findViewById(R.id.tv_patient_allergies_view);
+        tv_patient_dietary_information_view = view.findViewById(R.id.tv_patient_dietary_information_view);
+        tv_patient_remedies_view = view.findViewById(R.id.tv_patient_remedies_view);
+        tv_patient_social_habit_view = view.findViewById(R.id.tv_patient_social_habit_view);
+        tv_patient_physical_exam_view = view.findViewById(R.id.tv_patient_physical_exam_view);
+        tv_patient_surgeries_view = view.findViewById(R.id.tv_patient_surgeries_view);
 
-        //TODO parse the data
         patientViewModel.getData().observe(this, new Observer<Patient>() {
             @Override
             public void onChanged(Patient patient) {
+                tv_patient_data_view.setText("\n");
+                tv_patient_data_view.append(patient.getAddress() + "\n");
+                tv_patient_data_view.append(patient.getBloodType() + "\n");
+                tv_patient_data_view.append(patient.getSocialStatus());
 
             }
         });
@@ -97,54 +99,93 @@ public class ViewAllPatientDataFragment extends Fragment {
         familyDiseasesViewModel.getAllFamilyDiseases().observe(this, new Observer<List<FamilyDiseases>>() {
             @Override
             public void onChanged(List<FamilyDiseases> familyDiseases) {
-
+                for (FamilyDiseases current : familyDiseases) {
+                    if (current != null) {
+                        tv_patient_family_diseases_view.append("\n");
+                        tv_patient_family_diseases_view.append(current.getRelation() + " - " + current.getDiseaseName());
+                    }
+                }
             }
         });
 
         allergiesViewModel.getAllAllergies().observe(this, new Observer<List<Allergies>>() {
             @Override
             public void onChanged(List<Allergies> allergies) {
-
+                for (Allergies current : allergies) {
+                    if (current != null) {
+                        tv_patient_allergies_view.append("\n");
+                        tv_patient_allergies_view.append(current.getAllergyName());
+                    }
+                }
             }
         });
 
         dietaryInformationViewModel.getDietaryInformationList().observe(this, new Observer<List<DietaryInformation>>() {
             @Override
             public void onChanged(List<DietaryInformation> dietaryInformations) {
-
+                for (DietaryInformation current : dietaryInformations) {
+                    if (current != null) {
+                        tv_patient_dietary_information_view.append("\n");
+                        tv_patient_dietary_information_view.append(current.getRestrictions() + "\n");
+                        tv_patient_dietary_information_view.append(current.getStimulants() + "\n");
+                        tv_patient_dietary_information_view.append(current.getSupplements() + "\n");
+                    }
+                }
             }
         });
 
         remediesViewModel.getAllRemedies().observe(this, new Observer<List<Remedies>>() {
             @Override
             public void onChanged(List<Remedies> remedies) {
-
+                for (Remedies current : remedies) {
+                    if (current != null) {
+                        tv_patient_remedies_view.append("\n");
+                        tv_patient_remedies_view.append(current.getName() + "\n");
+                        tv_patient_remedies_view.append(current.getStartDate() + "\n");
+                        tv_patient_remedies_view.append(String.valueOf(current.getDose()) + "\n");
+                        tv_patient_remedies_view.append(current.getOutcome() + "\n");
+                    }
+                }
             }
         });
 
         socialHabitViewModel.getSocialHabitLiveData().observe(this, new Observer<SocialHabit>() {
             @Override
             public void onChanged(SocialHabit socialHabit) {
-
+                if (socialHabit != null) {
+                    tv_patient_social_habit_view.append("\n");
+                    tv_patient_social_habit_view.append(String.valueOf(socialHabit.isAlcohol()) + "\n");
+                    tv_patient_social_habit_view.append(String.valueOf(socialHabit.isDrugs()) + "\n");
+                    tv_patient_social_habit_view.append(String.valueOf(socialHabit.isTobacco()));
+                }
             }
         });
 
         physicalExamViewModel.getPhysicalExamLiveData().observe(this, new Observer<PhysicalExam>() {
             @Override
             public void onChanged(PhysicalExam physicalExam) {
-
+                if (physicalExam != null) {
+                    tv_patient_physical_exam_view.append("\n");
+                    tv_patient_physical_exam_view.append(physicalExam.getBloodPressure() + "\n");
+                    tv_patient_physical_exam_view.append(physicalExam.getHeartRate());
+                }
             }
         });
 
         surgeryViewModel.getAllSurgeries().observe(this, new Observer<List<Surgery>>() {
             @Override
             public void onChanged(List<Surgery> surgeries) {
-
+                for (Surgery current : surgeries) {
+                    if (current != null) {
+                        tv_patient_surgeries_view.append("\n");
+                        tv_patient_surgeries_view.append(current.getName());
+                    }
+                }
             }
         });
 
 
-        return inflater.inflate(R.layout.fragment_view_all_patient_data, container, false);
+        return view;
     }
 
 }
