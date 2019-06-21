@@ -3,13 +3,9 @@ package com.example.patienthistory.room.repositories;
 import android.app.Application;
 import android.os.AsyncTask;
 
-import com.example.patienthistory.room.dao.PatientDao;
 import com.example.patienthistory.room.dao.PhysicalExamDao;
 import com.example.patienthistory.room.databases.PatientDatabase;
-import com.example.patienthistory.room.entities.Patient;
 import com.example.patienthistory.room.entities.PhysicalExam;
-
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -29,7 +25,7 @@ public class PhysicalExamRepository {
 
     public void insert(PhysicalExam physicalExam){ new InsertPhysicalExamAsyncTask(physicalExamDao).execute(physicalExam);}
 
-    public void update(PhysicalExam physicalExam){ new DeletePhysicalExamAsyncTask(physicalExamDao).execute(physicalExam);}
+    public void update(PhysicalExam physicalExam){ new UpdatePhysicalExamAsyncTask(physicalExamDao).execute(physicalExam);}
 
     public  void delete(PhysicalExam physicalExam){ new DeletePhysicalExamAsyncTask(physicalExamDao).execute(physicalExam);}
 

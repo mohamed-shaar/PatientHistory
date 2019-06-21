@@ -45,11 +45,11 @@ public class AddPhysicalExamFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_physical_exam, container, false);
 
+        physicalExamViewModel = ViewModelProviders.of(this).get(PhysicalExamViewModel.class);
+
         et_patient_blood_pressure = view.findViewById(R.id.et_patient_blood_pressure);
         et_patient_heart_rate = view.findViewById(R.id.et_patient_heart_rate);
         btn_patient_physical_exam_done = view.findViewById(R.id.btn_patient_physical_exam_done);
-
-        physicalExamViewModel = ViewModelProviders.of(this).get(PhysicalExamViewModel.class);
 
         physicalExamViewModel.getPhysicalExamLiveData().observe(this, new Observer<PhysicalExam>() {
             @Override
@@ -77,8 +77,8 @@ public class AddPhysicalExamFragment extends Fragment {
                         PhysicalExam physicalExam = new PhysicalExam(1, blood_pressure, heart_rate);
                         physicalExam.setId(idHolder);
                         physicalExamViewModel.update(physicalExam);
-                        getActivity().getSupportFragmentManager().popBackStack();
                     }
+                    getActivity().getSupportFragmentManager().popBackStack();
                 }
             }
         });
