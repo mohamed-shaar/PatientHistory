@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.patienthistory.user_activities.AssistantActivity;
-import com.example.patienthistory.user_activities.DoctorActivity;
-import com.example.patienthistory.user_activities.PatientActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TempActivity extends AppCompatActivity {
@@ -25,7 +21,8 @@ public class TempActivity extends AppCompatActivity {
         btn_patient_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, PatientActivity.class);
+                Intent intent = new Intent(TempActivity.this, SignInActivity.class);
+                intent.putExtra("Type", "patient");
                 startActivity(intent);
             }
         });
@@ -33,7 +30,8 @@ public class TempActivity extends AppCompatActivity {
         btn_doctor_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, DoctorActivity.class);
+                Intent intent = new Intent(TempActivity.this, SignInActivity.class);
+                intent.putExtra("Type", "doctor");
                 startActivity(intent);
             }
         });
@@ -41,7 +39,8 @@ public class TempActivity extends AppCompatActivity {
         btn_assistant_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, AssistantActivity.class);
+                Intent intent = new Intent(TempActivity.this, SignInActivity.class);
+                intent.putExtra("Type", "clinic");
                 startActivity(intent);
             }
         });
