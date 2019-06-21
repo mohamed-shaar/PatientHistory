@@ -1,6 +1,7 @@
 package com.example.patienthistory;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,10 +26,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SignInActivity extends AppCompatActivity {
 
+    public static String SHARED_PREFS = "sharedPref";
+    public static String USERNAME = "username";
+
     private EditText et_username;
     private EditText et_password;
     private TextView tv_login;
     private RequestQueue mRequestQueue;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,9 @@ public class SignInActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();
         final String type = intent.getStringExtra("Type");
+
+        sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         et_username = findViewById(R.id.et_username_sign_in);
         et_password = findViewById(R.id.et_password_sign_in);
@@ -87,6 +97,8 @@ public class SignInActivity extends AppCompatActivity {
                                                 userObject = parent.getJSONObject("user");
                                                 String username = userObject.getString("username");
                                                 Log.d("user", username);
+                                                editor.putString(USERNAME, username);
+                                                editor.apply();
                                                 String email = userObject.getString("email");
                                                 Log.d("user", email);
                                                 String phone = userObject.getString("phone");
