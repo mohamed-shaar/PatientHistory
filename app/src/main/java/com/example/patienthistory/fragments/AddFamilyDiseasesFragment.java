@@ -54,6 +54,7 @@ public class AddFamilyDiseasesFragment extends Fragment {
             public void onClick(View v) {
                 extractData();
                 familyDiseasesViewModel.insert(new FamilyDiseases(disease_name, patient_relative,1));
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 

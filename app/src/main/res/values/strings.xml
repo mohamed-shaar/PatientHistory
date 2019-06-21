@@ -56,4 +56,6 @@
     <string name="done">Done</string>
     <string name="disease_name">Disease Name</string>
     <string name="relative">Relative</string>
+    <string name="restrictions">Restrictions</string>
+    <string name="supplements">Supplements</string>
 </resources>
