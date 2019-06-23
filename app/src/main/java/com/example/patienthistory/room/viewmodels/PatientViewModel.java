@@ -2,13 +2,16 @@ package com.example.patienthistory.room.viewmodels;
 
 import android.app.Application;
 
-
 import com.example.patienthistory.room.entities.Patient;
 import com.example.patienthistory.room.repositories.PatientRepository;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+/**
+ * ViewModels act as the layer between views and repositories for accessing database
+ */
 
 public class PatientViewModel extends AndroidViewModel {
 

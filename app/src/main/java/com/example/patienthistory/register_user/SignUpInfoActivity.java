@@ -9,33 +9,39 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.patienthistory.MainActivity;
 import com.example.patienthistory.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This activity takes the sign in information of the user
+ */
 public class SignUpInfoActivity extends AppCompatActivity {
 
     public static String SHARED_PREFS = "sharedPref";
     public static String USERNAME = "username";
     public static String EMAIL = "email";
     public static String PASSWORD = "password";
+    public static String NATIONAL_ID = "id";
 
     private TextView tv_logIn;
     private EditText et_username;
     private EditText et_email;
     private EditText et_password;
-    private EditText et_confirmPassword;
+    private EditText et_national_id;
     private ImageView iv_right_arrow;
 
     private String logIn;
     private String username;
     private String email;
     private String password;
-    private String confirmPassword;
+    private String nationalId;
 
     private boolean usernameFilled;
     private boolean emailFilled;
-    private boolean passwordConfirmed;
+    private boolean passwordFilled;
+    private boolean nationalIdFilled;
 
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -52,7 +58,7 @@ public class SignUpInfoActivity extends AppCompatActivity {
         et_username = findViewById(R.id.et_username);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
-        et_confirmPassword = findViewById(R.id.et_confirmPassword);
+        et_national_id = findViewById(R.id.et_nationalId);
         iv_right_arrow = findViewById(R.id.iv_right_arrow_sign_up);
 
         iv_right_arrow.setOnClickListener(new View.OnClickListener() {
@@ -60,8 +66,9 @@ public class SignUpInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 extractUsername();
                 extractEmail();
-                extractPasswordAndConfirm();
-                if (usernameFilled && emailFilled && passwordConfirmed){
+                extractPassword();
+                extractNationalId();
+                if (usernameFilled && emailFilled && passwordFilled && nationalIdFilled){
                     editor.apply();
                     Intent intent = new Intent(SignUpInfoActivity.this, ContactInfoActivity.class);
                     startActivity(intent);
@@ -72,7 +79,8 @@ public class SignUpInfoActivity extends AppCompatActivity {
         tv_logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(SignUpInfoActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -101,19 +109,27 @@ public class SignUpInfoActivity extends AppCompatActivity {
         }
     }
 
-    private void extractPasswordAndConfirm(){
+    private void extractPassword(){
         password = et_password.getText().toString().trim();
-        confirmPassword = et_confirmPassword.getText().toString().trim();
+        //confirmPassword = et_national_id.getText().toString().trim();
 
-        if (password.isEmpty() || confirmPassword.isEmpty()){
+        if (password.isEmpty()){
             Toast.makeText(this, "Please enter password and confirm password", Toast.LENGTH_SHORT).show();
         }
-        if (password.equals(confirmPassword)){
+        else {
             editor.putString(PASSWORD, password);
-            passwordConfirmed = true;
+            passwordFilled = true;
+        }
+    }
+
+    private void extractNationalId(){
+        nationalId = et_national_id.getText().toString().trim();
+        if (nationalId.isEmpty()){
+            Toast.makeText(this, "Please enter national Id.", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
+            editor.putString(NATIONAL_ID, nationalId);
+            nationalIdFilled = true;
         }
     }
 

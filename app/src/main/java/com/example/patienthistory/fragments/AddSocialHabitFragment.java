@@ -1,7 +1,9 @@
 package com.example.patienthistory.fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +11,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.patienthistory.MainActivity;
 import com.example.patienthistory.R;
+import com.example.patienthistory.VolleySingleton;
+import com.example.patienthistory.register_user.SignUpInfoActivity;
 import com.example.patienthistory.room.entities.SocialHabit;
 import com.example.patienthistory.room.viewmodels.SocialHabitViewModel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
- * A simple {@link Fragment} subclass.
+ * This fragment takes the social habit info from the user, adds them to the database and sends them to the backend
  */
 public class AddSocialHabitFragment extends Fragment {
 
@@ -35,6 +50,15 @@ public class AddSocialHabitFragment extends Fragment {
 
     int idHolder = 0;
 
+    private String url = MainActivity.url + "socialHabit/add";
+
+    private RequestQueue mQueue;
+
+    private JsonObjectRequest jsonObjectRequest;
+    private JSONObject patientJsonObject;
+
+    private SharedPreferences sharedPreferences;
+
 
     public AddSocialHabitFragment() {
         // Required empty public constructor
@@ -46,6 +70,12 @@ public class AddSocialHabitFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_social_habit, container, false);
+
+        mQueue = VolleySingleton.getInstance(getContext()).getRequestQueue();
+
+        patientJsonObject = new JSONObject();
+
+        sharedPreferences = this.getActivity().getSharedPreferences(SignUpInfoActivity.SHARED_PREFS, MODE_PRIVATE);
 
         socialHabitViewModel = ViewModelProviders.of(this).get(SocialHabitViewModel.class);
 
@@ -74,14 +104,42 @@ public class AddSocialHabitFragment extends Fragment {
                     Toast.makeText(getContext(), "Please Enter Valid Fields.", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    SocialHabit socialHabit = new SocialHabit(1, illicit_drugs, tobacco, alcohol);
                     if (idHolder == 0){
                         socialHabitViewModel.insert(new SocialHabit(1, illicit_drugs, tobacco, alcohol));
                     }
                     else {
-                        SocialHabit socialHabit = new SocialHabit(1, illicit_drugs, tobacco, alcohol);
                         socialHabit.setId(idHolder);
                         socialHabitViewModel.update(socialHabit);
                     }
+
+                    try {
+                        patientJsonObject.put("illicitDrugs", illicit_drugs);
+                        patientJsonObject.put("tobacco", tobacco);
+                        patientJsonObject.put("alcohol", alcohol);
+                        patientJsonObject.put("username", sharedPreferences.getString(SignUpInfoActivity.USERNAME, ""));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, patientJsonObject, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                int status = response.getInt("status");
+                                Log.d("Add social habit:" , String.valueOf(status));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            error.printStackTrace();
+                        }
+                    });
+                    mQueue.add(jsonObjectRequest);
                     getActivity().getSupportFragmentManager().popBackStack();
                 }
 

@@ -10,6 +10,9 @@ import com.example.patienthistory.room.entities.Surgery;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
+/**
+ * This class performs CRUD operation on a background thread for the corresponding entity
+ */
 
 public class SurgeryRepository {
 

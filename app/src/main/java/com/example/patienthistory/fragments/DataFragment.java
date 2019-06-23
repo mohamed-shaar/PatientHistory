@@ -14,6 +14,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+/**
+ * This fragment shows the patient all types of data that they can enter and allows them to view it
+ */
 public class DataFragment extends Fragment {
 
     private Button btn_patient_data;

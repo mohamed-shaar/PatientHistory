@@ -11,6 +11,9 @@ import java.util.List;
 
 import androidx.lifecycle.LiveData;
 
+/**
+ * This class performs CRUD operation on a background thread for the corresponding entity
+ */
 public class AllergiesRepository {
 
     private AllergiesDao allergiesDao;

@@ -3,13 +3,14 @@ package com.example.patienthistory.room.repositories;
 import android.app.Application;
 import android.os.AsyncTask;
 
-
 import com.example.patienthistory.room.dao.PatientDao;
 import com.example.patienthistory.room.databases.PatientDatabase;
 import com.example.patienthistory.room.entities.Patient;
 
 import androidx.lifecycle.LiveData;
-
+/**
+ * This class performs CRUD operation on a background thread for the corresponding entity
+ */
 public class PatientRepository {
 
     private PatientDao patientDao;

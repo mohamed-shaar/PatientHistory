@@ -13,6 +13,9 @@ import com.example.patienthistory.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This class takes contact information from the user during register
+ */
 public class ContactInfoActivity extends AppCompatActivity {
 
     public static String SHARED_PREFS = SignUpInfoActivity.SHARED_PREFS;
@@ -107,7 +110,7 @@ public class ContactInfoActivity extends AppCompatActivity {
     private void extractAge(){
         age = Integer.parseInt(et_age.getText().toString().trim());
         if (age >= 18 && age <= 120){
-            editor.putInt(AGE, age);
+            editor.putString(AGE, String.valueOf(age));
             ageFilled = true;
         }
         else {

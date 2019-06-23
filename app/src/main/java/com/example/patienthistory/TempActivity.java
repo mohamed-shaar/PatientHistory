@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.patienthistory.user_activities.AssistantActivity;
-import com.example.patienthistory.user_activities.DoctorActivity;
-import com.example.patienthistory.user_activities.PatientActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This activity allows the user to choose their type (patient, doctor, clinic)
+ */
 public class TempActivity extends AppCompatActivity {
 
     @Override
@@ -22,10 +21,13 @@ public class TempActivity extends AppCompatActivity {
         Button btn_doctor_view = findViewById(R.id.btn_doctor_view);
         Button btn_assistant_view = findViewById(R.id.btn_assistant_view);
 
+        //The user makes their choice and are taken to the sign in activity
+
         btn_patient_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, PatientActivity.class);
+                Intent intent = new Intent(TempActivity.this, SignInActivity.class);
+                intent.putExtra("Type", "patient");
                 startActivity(intent);
             }
         });
@@ -33,7 +35,8 @@ public class TempActivity extends AppCompatActivity {
         btn_doctor_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, DoctorActivity.class);
+                Intent intent = new Intent(TempActivity.this, SignInActivity.class);
+                intent.putExtra("Type", "doctor");
                 startActivity(intent);
             }
         });
@@ -41,7 +44,8 @@ public class TempActivity extends AppCompatActivity {
         btn_assistant_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, AssistantActivity.class);
+                Intent intent = new Intent(TempActivity.this, SignInActivity.class);
+                intent.putExtra("Type", "clinic");
                 startActivity(intent);
             }
         });
