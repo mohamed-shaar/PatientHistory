@@ -30,6 +30,7 @@ import androidx.fragment.app.Fragment;
 /**
  * This fragment uses the patient id to add medicine and disease
  */
+
 public class AddPatientMedicineOrDiseaseFragment extends Fragment {
 
     private String diseaseUrl = MainActivity.url + "disease/add";
@@ -107,6 +108,7 @@ public class AddPatientMedicineOrDiseaseFragment extends Fragment {
                                 try {
                                     int status = response.getInt("status");
                                     Log.d("status", String.valueOf(status));
+                                    //todo get diseaseId from response
                                     diseaseId = response.getString("diseaseId");
                                 } catch (JSONException e) {
                                     e.printStackTrace();
