@@ -9,6 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+/**
+ * ViewModels act as the layer between views and repositories for accessing database
+ */
+
 public class SocialHabitViewModel extends AndroidViewModel {
 
     private SocialHabitRepository socialHabitRepository;

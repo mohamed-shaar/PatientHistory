@@ -10,7 +10,9 @@ import com.example.patienthistory.room.entities.Remedies;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
-
+/**
+ * This class performs CRUD operation on a background thread for the corresponding entity
+ */
 public class RemediesRepository {
 
     private RemediesDao remediesDao;

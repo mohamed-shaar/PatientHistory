@@ -14,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.patienthistory.MainActivity;
 import com.example.patienthistory.R;
 import com.example.patienthistory.SignInActivity;
 import com.example.patienthistory.VolleySingleton;
@@ -31,27 +32,34 @@ import androidx.lifecycle.ViewModelProviders;
 
 import static android.content.Context.MODE_PRIVATE;
 
-
+/**
+ * This class takes some information from the user
+ */
 public class AddDataFragment extends Fragment {
 
+    //shared preference variables
     public static String SHARED_PREFS = SignUpInfoActivity.SHARED_PREFS;
     public static String USERNAME = SignUpInfoActivity.USERNAME;
 
+    //EditTexts to get the data from the user
     private EditText et_patient_address;
     private EditText et_patient_blood_type;
     private EditText et_patient_social_status;
     private EditText et_patient_number_of_children;
     private Button btn_patient_data_done;
 
+    //PatientViewModel to access the database
     private PatientViewModel patientViewModel;
 
+    //these variables will hold the values from the EditTexts
     private String address;
     private String blood_type;
     private String social_status;
     private String number_of_children;
 
+
     private String type = "insert";
-    private String url = "http://192.168.88.141:3000/patient/addpatientdata";
+    private String url = MainActivity.url + "patient/addpatientdata";
 
     private int idHolder;
 
@@ -60,7 +68,6 @@ public class AddDataFragment extends Fragment {
     private JsonObjectRequest jsonObjectRequest;
 
     private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -71,15 +78,18 @@ public class AddDataFragment extends Fragment {
         final JSONObject patientJSONObject = new JSONObject();
 
         sharedPreferences = this.getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        editor = sharedPreferences.edit();
 
+        //linking buttons and editTexts with xml
         et_patient_address = view.findViewById(R.id.et_patient_address);
         et_patient_blood_type = view.findViewById(R.id.et_patient_blood_type);
         et_patient_social_status = view.findViewById(R.id.et_patient_social_status);
         et_patient_number_of_children = view.findViewById(R.id.et_patient_number_of_children);
         btn_patient_data_done = view.findViewById(R.id.btn_patient_data_done);
 
+        //initializing viewModel
         patientViewModel = ViewModelProviders.of(this).get(PatientViewModel.class);
+
+        //this type is only inserted once then updated, so we user an observer to keep it updated
         patientViewModel.getData().observe(this, new Observer<Patient>() {
             @Override
             public void onChanged(Patient patient) {
@@ -102,6 +112,7 @@ public class AddDataFragment extends Fragment {
                 if (type.equals("insert")){
                     patientViewModel.insert(patient);
                     try {
+                        //add values to json object to be sent, first parameter is the identifier second is the value
                         patientJSONObject.put("address", address);
                         patientJSONObject.put("bloodType", blood_type);
                         patientJSONObject.put("socialStatus", social_status);
@@ -111,15 +122,21 @@ public class AddDataFragment extends Fragment {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    //creating the request
                     jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, patientJSONObject, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-
+                            try {
+                                int status = response.getInt("status");
+                                Log.d("Add Data status: ", String.valueOf(status));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-
+                            error.printStackTrace();
                         }
                     });
                     patientViewModel.insert(patient);
@@ -143,13 +160,16 @@ public class AddDataFragment extends Fragment {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-
+                            error.printStackTrace();
                         }
                     });
                     patient.setId(idHolder);
                     patientViewModel.update(patient);
                 }
+                //adding the request to the queue
                 mQueue.add(jsonObjectRequest);
+
+                //returning to the presvoid fragment
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });

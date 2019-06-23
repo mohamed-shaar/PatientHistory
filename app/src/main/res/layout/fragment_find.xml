@@ -4,12 +4,24 @@
     android:layout_height="match_parent"
     android:background="@color/blueDark">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/et_patient_add_doctor"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/find"
-        android:textColor="@color/grey"
-        android:textSize="40sp" />
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/enter_doctor_username"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btn_patient_add_doctor_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/button_shape"
+        android:padding="10dp"
+        android:text="@string/give_permission" />
 
 </RelativeLayout>

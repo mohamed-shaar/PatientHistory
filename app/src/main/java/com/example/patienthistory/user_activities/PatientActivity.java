@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+/**
+ * This is the view for the patient. The activity find the bottom navigation view for the clinic and sets the menu items to it
+ */
 public class PatientActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;

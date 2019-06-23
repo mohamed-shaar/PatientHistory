@@ -8,6 +8,9 @@ import android.os.Build;
 
 import com.example.patienthistory.R;
 
+/**
+ *  This class sets up notification channels
+ */
 public class NotificationHelper extends ContextWrapper {
 
     private NotificationManager mNotificationManager;

@@ -19,17 +19,22 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.patienthistory.MainActivity;
 import com.example.patienthistory.R;
 import com.example.patienthistory.VolleySingleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This activity lets the patient pick an image as a profile picture, collects all the sign up data and sends it in a request.
+ */
 public class PickImageAndConfirmActivity extends AppCompatActivity {
 
     private final int PICK_IMAGE_REQUEST = 71;
@@ -46,6 +51,7 @@ public class PickImageAndConfirmActivity extends AppCompatActivity {
 
     private RequestQueue mQueue;
 
+    private Bitmap bitmap;
 
     private boolean pickedImage;
     private boolean termsAgreed;
@@ -84,7 +90,7 @@ public class PickImageAndConfirmActivity extends AppCompatActivity {
 
                     String url = "http://192.168.88.141:3000/patient/register";
 
-                    SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+                    final SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
                     String username = sharedPreferences.getString(SignUpInfoActivity.USERNAME, "");
                     String email = sharedPreferences.getString(SignUpInfoActivity.EMAIL, "");
                     String phone = sharedPreferences.getString(ContactInfoActivity.PHONE_NUMBER, "");
@@ -125,10 +131,38 @@ public class PickImageAndConfirmActivity extends AppCompatActivity {
                             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                     mQueue.add(request);
 
-                    //Intent intent = new Intent(PickImageAndConfirmActivity.this, MainActivity.class);
-                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    //startActivity(intent);
-                    //finish();
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                    final byte [] imageBytes = byteArrayOutputStream.toByteArray();
+
+                    /*StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                        }
+                    })
+
+                    {
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("username", sharedPreferences.getString(SignUpInfoActivity.USERNAME, ""));
+                            params.put("image", Base64.encodeToString(imageBytes, Base64.DEFAULT));
+                            return params;
+                        }
+                    };
+
+                    mQueue.add(stringRequest);*/
+
+                    Intent intent = new Intent(PickImageAndConfirmActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -148,7 +182,7 @@ public class PickImageAndConfirmActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             filepath = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
                 iv_profile_picture.setImageBitmap(bitmap);
                 pickedImage = true;
                 editor.putString(PICTURE_PATH, filepath.toString());
@@ -162,4 +196,5 @@ public class PickImageAndConfirmActivity extends AppCompatActivity {
     public void finish() {
         super.finish();
     }
+
 }

@@ -9,7 +9,13 @@ import com.example.patienthistory.register_user.SignUpInfoActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This activity is the welcome screen.
+ * It holds the base ipv4 address for the localhost
+ */
 public class MainActivity extends AppCompatActivity {
+
+    public static String url = "http://192.168.1.6:3000/";
 
     private Button btn_signIn;
     private Button btn_register;

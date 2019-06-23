@@ -23,8 +23,7 @@
 
 
     <!-- for http requests-->
-    <string name="localhost">http://192.168.88.141</string>
-    <string name="port">:3000</string>
+    <string name="localhost">http://192.168.1.12:3000/</string>
     <string name="patients">Patients</string>
     <string name="clinic">Clinic</string>
     <string name="posts">Posts</string>
@@ -71,4 +70,15 @@
     <string name="heart_rate">Heart Rate</string>
     <string name="view_all_data">View All Data</string>
     <string name="national_id">National Id</string>
+    <string name="enter_doctor_username">Enter Doctor Username</string>
+    <string name="give_permission">Give Permission</string>
+    <string name="attempting_log_in">Attempting Log in</string>
+    <string name="disease_id">Disease ID</string>
+    <string name="description">Description</string>
+    <string name="name">Name</string>
+    <string name="add_disease">Add Disease</string>
+    <string name="treatment_for">Treatment For</string>
+    <string name="times">Times</string>
+    <string name="interval">Interval</string>
+    <string name="add_medicine">Add Medicine</string>
 </resources>

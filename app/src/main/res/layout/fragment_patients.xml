@@ -5,10 +5,20 @@
     android:background="@color/blueDark">
 
     <TextView
+        android:id="@+id/tv_patients_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:text="@string/patients"
         android:textColor="@color/grey"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        android:layout_margin="10dp"/>
+
+
+        <ListView
+            android:id="@+id/lv_patients"
+            android:layout_below="@+id/tv_patients_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
 </RelativeLayout>

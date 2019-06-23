@@ -14,6 +14,9 @@ import com.example.patienthistory.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * This activity takes the sign in information of the user
+ */
 public class SignUpInfoActivity extends AppCompatActivity {
 
     public static String SHARED_PREFS = "sharedPref";

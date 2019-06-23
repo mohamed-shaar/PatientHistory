@@ -2,7 +2,6 @@ package com.example.patienthistory.room.databases;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.example.patienthistory.room.dao.AllergiesDao;
 import com.example.patienthistory.room.dao.DietaryInformationDao;
@@ -22,12 +21,14 @@ import com.example.patienthistory.room.entities.SocialHabit;
 import com.example.patienthistory.room.entities.Surgery;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+/**
+ * This class uses all the Data Access objects to create the database.
+ */
 @Database(entities = {Patient.class,
         Allergies.class,
         DietaryInformation.class,
