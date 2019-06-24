@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
 
-    public static String url = "http://192.168.1.6:3000/";
+    public static String url = "http://192.168.43.237:8000/";
 
     private Button btn_signIn;
     private Button btn_register;

@@ -109,7 +109,7 @@ public class PatientsFragment extends Fragment {
                             AddPatientMedicineOrDiseaseFragment fragment = new AddPatientMedicineOrDiseaseFragment();
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.patient_frame_layout, fragment);
+                            fragmentTransaction.replace(R.id.doctor_frame_layout, fragment);
                             fragmentTransaction.addToBackStack(null);
                             fragmentTransaction.commit();
                         }
