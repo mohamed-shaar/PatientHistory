@@ -30,7 +30,7 @@
         android:id="@+id/btn_assistant_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/assistant"
+        android:text="@string/clinic"
         android:layout_margin="15dp"
         android:background="@drawable/button_shape"
         android:layout_below="@+id/btn_doctor_view"

@@ -19,6 +19,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.bumptech.glide.Glide;
 import com.example.patienthistory.MainActivity;
 import com.example.patienthistory.R;
 import com.example.patienthistory.VolleySingleton;
@@ -183,7 +184,8 @@ public class PickImageAndConfirmActivity extends AppCompatActivity {
             filepath = data.getData();
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filepath);
-                iv_profile_picture.setImageBitmap(bitmap);
+                //iv_profile_picture.setImageBitmap(bitmap);
+                Glide.with(getApplicationContext()).load(filepath).into(iv_profile_picture);
                 pickedImage = true;
                 editor.putString(PICTURE_PATH, filepath.toString());
             } catch (IOException e) {

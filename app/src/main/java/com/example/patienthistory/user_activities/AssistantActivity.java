@@ -5,7 +5,6 @@ import android.view.MenuItem;
 
 import com.example.patienthistory.R;
 import com.example.patienthistory.fragments.BookingFragment;
-import com.example.patienthistory.fragments.SessionsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -37,9 +36,6 @@ public class AssistantActivity extends AppCompatActivity {
                     switch (item.getItemId()){
                         case R.id.assistant_bookings:
                             fragment = new BookingFragment();
-                            break;
-                        case R.id.assistant_sessions:
-                            fragment = new SessionsFragment();
                             break;
                         }
                     getSupportFragmentManager().beginTransaction().replace(R.id.assistant_frame_layout, fragment).commit();

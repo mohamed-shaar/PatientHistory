@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#E0E0E0"
-        app:menu="@menu/navigation_assistant" />
+        app:menu="@menu/navigation_clinic" />
 
 </RelativeLayout>
