@@ -5,11 +5,19 @@
     android:background="@color/blueDark">
 
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/lv_doctor_posts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_above="@+id/btn_doctor_add_post"/>
+
+    <Button
+        android:id="@+id/btn_doctor_add_post"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/posts"
-        android:textColor="@color/grey"
-        android:textSize="40sp" />
+        android:background="@drawable/button_shape"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:text="@string/add_post"/>
 </RelativeLayout>

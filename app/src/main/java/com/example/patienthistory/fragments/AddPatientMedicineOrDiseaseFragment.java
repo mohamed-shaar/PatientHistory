@@ -108,8 +108,11 @@ public class AddPatientMedicineOrDiseaseFragment extends Fragment {
                                 try {
                                     int status = response.getInt("status");
                                     Log.d("status", String.valueOf(status));
-                                    //todo get diseaseId from response
-                                    diseaseId = response.getString("diseaseId");
+                                    diseaseId = response.getString("id");
+                                    if (diseaseId.isEmpty()){
+                                        Toast.makeText(getContext(), "You can now add medicine.", Toast.LENGTH_LONG).show();
+                                    }
+                                    Log.d("disease", diseaseId);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }

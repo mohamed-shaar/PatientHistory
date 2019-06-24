@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    tools:context=".fragments.DoctorViewPatientData">
+
+    <TextView
+        android:id="@+id/tv_doctor_details_view_patient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/details_two"
+        android:textColor="@color/grey"
+        android:textSize="30sp" />
+
+    <ListView
+        android:id="@+id/lv_doctor_view_patient_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_doctor_details_view_patient" />
+
+</RelativeLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    android:orientation="vertical"
+    tools:context=".fragments.ClinicDetailsFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="30sp"
+        android:textColor="@color/grey"
+        android:layout_gravity="center_horizontal"/>
+    <!-- Put Name Here-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:textSize="30sp"
+        android:textColor="@color/grey"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- Address here-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/btn_doctor_clinic_add_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="@string/add_account"/>
+
+    <Button
+        android:id="@+id/btn_doctor_clinic_remove_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="@string/remove_account"/>
+</LinearLayout>

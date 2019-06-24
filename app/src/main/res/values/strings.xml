@@ -87,4 +87,14 @@
     <string name="add_data">Add Data</string>
     <string name="add_session_details">Add Session Details:</string>
     <string name="details">Details...</string>
+    <string name="details_two">Details</string>
+    <string name="location">Location</string>
+    <string name="add_account">Add Account</string>
+    <string name="remove_account">Remove Account</string>
+    <string name="enter_clinic_username">Enter Clinic Username:</string>
+    <string name="enter_clinic_password">Enter Clinic Password</string>
+    <string name="comment">Comment...</string>
+    <string name="add_post">Add Post</string>
+    <string name="enter_post_title">Enter Post Title</string>
+    <string name="enter_post_details">Enter Post Details</string>
 </resources>

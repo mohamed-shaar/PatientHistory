@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.patienthistory.R;
-import com.example.patienthistory.fragments.ChatFragment;
 import com.example.patienthistory.fragments.DataFragment;
 import com.example.patienthistory.fragments.FindFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -43,8 +42,6 @@ public class PatientActivity extends AppCompatActivity {
                         case R.id.patient_find:
                             fragment = new FindFragment();
                             break;
-                        case R.id.patient_chat:
-                            fragment = new ChatFragment();
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.patient_frame_layout, fragment).commit();
                     return true;

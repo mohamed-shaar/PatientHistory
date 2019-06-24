@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    tools:context=".fragments.DoctorAddClinic">
+
+    <EditText
+        android:id="@+id/et_doctor_clinic_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="10dp"
+        android:inputType="text"
+        android:hint="@string/enter_clinic_username"
+        android:layout_above="@id/position"/>
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"/>
+
+    <EditText
+        android:id="@+id/et_doctor_clinic_password"
+        android:hint="@string/enter_clinic_password"
+        android:layout_below="@id/position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textVisiblePassword"
+        android:background="@drawable/edit_text_background"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btn_doctor_clinic_detail_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:text="@string/done"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>

@@ -67,7 +67,12 @@ public class DoctorChoices extends Fragment {
         btn_doctor_view_patient_data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                DoctorViewPatientData fragment = new DoctorViewPatientData();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.doctor_frame_layout, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

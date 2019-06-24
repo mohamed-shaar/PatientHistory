@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.patienthistory.R;
-import com.example.patienthistory.fragments.ChatFragment;
 import com.example.patienthistory.fragments.ClinicFragment;
 import com.example.patienthistory.fragments.PatientsFragment;
 import com.example.patienthistory.fragments.PostsFragment;
@@ -45,9 +44,6 @@ public class DoctorActivity extends AppCompatActivity {
                             break;
                         case R.id.doctor_posts:
                             fragment = new PostsFragment();
-                            break;
-                        case R.id.doctor_chats:
-                            fragment = new ChatFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.doctor_frame_layout, fragment).commit();

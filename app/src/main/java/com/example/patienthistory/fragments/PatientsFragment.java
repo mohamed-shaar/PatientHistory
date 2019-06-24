@@ -42,6 +42,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class PatientsFragment extends Fragment {
 
     private String url = MainActivity.url + "doctor/patients";
+    public static String PATIENTUSERNAME = "patientUsername";
 
     private RequestQueue mQueue;
 
@@ -104,7 +105,7 @@ public class PatientsFragment extends Fragment {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            editor.putString("patientUsername", patientUserNames.get(position));
+                            editor.putString(PATIENTUSERNAME, patientUserNames.get(position));
                             editor.apply();
                             DoctorChoices fragment = new DoctorChoices();
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

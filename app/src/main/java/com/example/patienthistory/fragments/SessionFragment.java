@@ -36,8 +36,7 @@ public class SessionFragment extends Fragment {
     private EditText et_doctor_session_details;
     private Button btn_doctor_add_session_done;
 
-    //TODO update url
-    private String url = MainActivity.url + "";
+    private String url = MainActivity.url + "session/add";
 
     private SharedPreferences sharedPreferences;
 
@@ -77,8 +76,9 @@ public class SessionFragment extends Fragment {
                 }
                 else {
                     try {
-                        sessionJsonObject.put("username", sharedPreferences.getString("patientUsername", ""));
-                        sessionJsonObject.put("session", details);
+                        sessionJsonObject.put("patient", sharedPreferences.getString("patientUsername", ""));
+                        sessionJsonObject.put("description", details);
+                        sessionJsonObject.put("doctor", sharedPreferences.getString(SignUpInfoActivity.USERNAME, ""));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -98,7 +98,9 @@ public class SessionFragment extends Fragment {
                             error.printStackTrace();
                         }
                     });
+                    mQueue.add(jsonObjectRequest);
                 }
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
