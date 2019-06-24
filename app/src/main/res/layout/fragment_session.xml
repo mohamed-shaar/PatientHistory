@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    android:padding="10dp"
+    tools:context=".fragments.SessionFragment">
+
+    <TextView
+        android:id="@+id/add_session_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/add_session_details"
+        android:textColor="@color/grey"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_doctor_session_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_session_details"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="@string/details"
+        android:inputType="textMultiLine"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btn_doctor_add_session_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:padding="10dp"
+        android:text="@string/done" />
+
+</RelativeLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueDark"
+    tools:context=".fragments.DoctorChoices">
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <Button
+        android:id="@+id/btn_doctor_add_prescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_doctor_add_session"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:padding="10dp"
+        android:text="@string/add_prescription"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btn_doctor_add_session"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/position"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:padding="10dp"
+        android:text="@string/add_session"
+        android:textAlignment="center" />
+
+
+    <Button
+        android:id="@+id/btn_doctor_view_patient_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/position"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:padding="10dp"
+        android:text="@string/view_data"
+        android:textAlignment="center" />
+
+
+    <Button
+        android:id="@+id/btn_doctor_add_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_doctor_view_patient_data"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:padding="10dp"
+        android:text="@string/add_data"
+        android:textAlignment="center" />
+</RelativeLayout>

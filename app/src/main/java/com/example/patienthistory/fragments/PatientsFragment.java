@@ -106,7 +106,7 @@ public class PatientsFragment extends Fragment {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             editor.putString("patientUsername", patientUserNames.get(position));
                             editor.apply();
-                            AddPatientMedicineOrDiseaseFragment fragment = new AddPatientMedicineOrDiseaseFragment();
+                            DoctorChoices fragment = new DoctorChoices();
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                             fragmentTransaction.replace(R.id.doctor_frame_layout, fragment);
